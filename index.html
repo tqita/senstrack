@@ -1,1 +1,337 @@
 <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AllergAir | Breathe Easy, Live Safely</title>
+    <!-- Google Fonts for clean typography -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        /* Modern CSS Reset & Variable Colors (Medical/Natural Theme) */
+        :root {
+            --primary-sage: #6B8E7A;
+            --primary-light: #EBF1ED;
+            --dark-slate: #2C3E35;
+            --text-main: #4A5551;
+            --bg-clean: #FAFAF9;
+            --white: #FFFFFF;
+            --accent-warning: #D98880;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-clean);
+            color: var(--text-main);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        /* Header Navigation */
+        header {
+            background-color: rgba(250, 250, 249, 0.8);
+            backdrop-filter: blur(10px);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 100;
+            border-bottom: 1px solid rgba(107, 142, 122, 0.1);
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 80px;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--dark-slate);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .logo span {
+            color: var(--primary-sage);
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-main);
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary-sage);
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 180px 0 100px 0;
+            background: linear-gradient(180deg, var(--primary-light) 0%, var(--bg-clean) 100%);
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            color: var(--dark-slate);
+            margin-bottom: 1.5rem;
+            font-weight: 600;
+            letter-spacing: -0.5px;
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            max-width: 600px;
+            margin: 0 auto 2.5rem auto;
+            color: var(--text-main);
+            font-weight: 300;
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: var(--primary-sage);
+            color: var(--white);
+            padding: 14px 28px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: transform 0.2s ease, background-color 0.2s ease;
+        }
+
+        .btn:hover {
+            background-color: var(--dark-slate);
+            transform: translateY(-2px);
+        }
+
+        /* Sections General Layout */
+        section {
+            padding: 100px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2rem;
+            color: var(--dark-slate);
+            margin-bottom: 4rem;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 40px;
+            height: 3px;
+            background-color: var(--primary-sage);
+            margin: 12px auto 0 auto;
+            border-radius: 2px;
+        }
+
+        /* Problem & Current State Grid */
+        .problem-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: stretch;
+        }
+
+        .card {
+            background-color: var(--white);
+            padding: 3rem;
+            border-radius: 16px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.02);
+            border: 1px solid rgba(107, 142, 122, 0.08);
+        }
+
+        .card h3 {
+            color: var(--dark-slate);
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        /* Solution / Idea Section */
+        .solution-bg {
+            background-color: var(--white);
+        }
+
+        .solution-features {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .feature {
+            text-align: center;
+            padding: 2rem;
+        }
+
+        .feature-icon {
+            width: 60px;
+            height: 60px;
+            background-color: var(--primary-light);
+            color: var(--primary-sage);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem auto;
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+
+        .feature h4 {
+            color: var(--dark-slate);
+            margin-bottom: 0.75rem;
+            font-size: 1.2rem;
+        }
+
+        /* Why it Works Section */
+        .why-it-works {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .why-it-works p {
+            font-size: 1.2rem;
+            color: var(--text-main);
+            margin-bottom: 2rem;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--dark-slate);
+            color: var(--white);
+            padding: 40px 0;
+            text-align: center;
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .problem-grid, .solution-features {
+                grid-template-columns: 1fr;
+            }
+            .hero h1 {
+                font-size: 2.25rem;
+            }
+            .nav-links {
+                display: none; /* Simplification for mobile view */
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header Navigation -->
+    <header>
+        <div class="container nav-container">
+            <div class="logo">
+                Allerg<span>Air</span>
+            </div>
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="#problem">The Challenge</a></li>
+                    <li><a href="#solution">Our Solution</a></li>
+                    <li><a href="#why-it-works">Why It Works</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h1>Invisible Protection for Every Breath</h1>
+            <p>A smart wearable sensor and intelligent mapping application designed to keep young adults safe from hidden environmental allergens.</p>
+            <a href="#solution" class="btn">Discover AllergAir</a>
+        </div>
+    </section>
+
+    <!-- Problem Section -->
+    <section id="problem">
+        <div class="container">
+            <h2 class="section-title">The Current Challenge</h2>
+            <div class="problem-grid">
+                <div class="card">
+                    <h3>The Reality for Young Adults</h3>
+                    <p>Many young adults have to navigate environments while constantly vulnerable to critical health threats. Too often, they do not notice an allergen's presence until it enters their system, causing immediate, avoidable damage to their health.</p>
+                </div>
+                <div class="card">
+                    <h3>How it's Managed Now</h3>
+                    <p>Currently, mitigation is entirely reactive. Individuals try their best to avoid known danger zones. When a slip-up happens and severe reactions manifest, they are forced to rely on painful, stressful emergency medical interventions like an "EpiPen".</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Solution / Idea Section -->
+    <section id="solution" class="solution-bg">
+        <div class="container">
+            <h2 class="section-title">The AllergAir System</h2>
+            <div class="solution-features">
+                <div class="feature">
+                    <div class="feature-icon">1</div>
+                    <h4>The Wearable Sensor</h4>
+                    <p>An aesthetic, compact device that easily clips to your jeans or handbag. It stays with you effortlessly, ensuring you never leave it behind.</p>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon">2</div>
+                    <h4>Instant Alerts</h4>
+                    <p>The core chemical sensor recognizes micro-elements of your specific allergens. Upon detection, both the device and your phone vibrate in sync to warn you instantly.</p>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon">3</div>
+                    <h4>Intelligent App</h4>
+                    <p>Log in, input your profile, and let the app track environmental fluctuations. View a personalized heat map showing exactly where and when your allergen levels peaked.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why It Works Section -->
+    <section id="why-it-works">
+        <div class="container">
+            <div class="why-it-works">
+                <h2 class="section-title">Proactive, Not Reactive</h2>
+                <p>AllergAir works because it transforms how you interface with your environment. By acting as an early warning system, it intercepts danger before it reaches you. This means living life confidently, minimizing health risks, and drastically reducing your reliance on heavy allergy medications.</p>
+                <a href="#" class="btn">Join the Waitlist</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 AllergAir Technologies. All rights reserved. Designed for clean medical innovation.</p>
+        </div>
+    </footer>
+
+</body>
+</html>
