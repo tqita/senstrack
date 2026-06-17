@@ -10,7 +10,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     
     <style>
-        /* Modern CSS Reset & Variable Colors (Medical/Natural Theme) */
+        /* Modern CSS Variable Colors (Medical/Natural Theme) */
         :root {
             --primary-sage: #6B8E7A;
             --primary-light: #EBF1ED;
@@ -72,6 +72,12 @@
             color: var(--primary-sage);
         }
 
+        .right-nav {
+            display: flex;
+            align-items: center;
+            gap: 2.5rem;
+        }
+
         .nav-links {
             display: flex;
             list-style: none;
@@ -87,6 +93,34 @@
 
         .nav-links a:hover {
             color: var(--primary-sage);
+        }
+
+        /* Minimalist Language Switcher */
+        .lang-switcher {
+            display: flex;
+            gap: 0.5rem;
+            background-color: var(--primary-light);
+            padding: 4px;
+            border-radius: 20px;
+            border: 1px solid rgba(107, 142, 122, 0.1);
+        }
+
+        .lang-btn {
+            background: none;
+            border: none;
+            padding: 6px 12px;
+            font-family: 'Inter', sans-serif;
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: var(--text-main);
+            cursor: pointer;
+            border-radius: 16px;
+            transition: all 0.2s ease;
+        }
+
+        .lang-btn.active {
+            background-color: var(--primary-sage);
+            color: var(--white);
         }
 
         /* Hero Section */
@@ -242,7 +276,7 @@
                 font-size: 2.25rem;
             }
             .nav-links {
-                display: none; /* Simplification for mobile view */
+                display: none; 
             }
         }
     </style>
@@ -253,39 +287,46 @@
     <header>
         <div class="container nav-container">
             <div class="logo">
-                AllergAir
+                Allerg<span>Air</span>
             </div>
-            <nav>
-                <ul class="nav-links">
-                    <li><a href="#problem">The Challenge</a></li>
-                    <li><a href="#solution">Our Solution</a></li>
-                    <li><a href="#why-it-works">Why It Works</a></li>
-                </ul>
-            </nav>
+            <div class="right-nav">
+                <nav>
+                    <ul class="nav-links">
+                        <li><a href="#problem" id="nav-challenge">The Challenge</a></li>
+                        <li><a href="#solution" id="nav-solution">Our Solution</a></li>
+                        <li><a href="#why-it-works" id="nav-why">Why It Works</a></li>
+                    </ul>
+                </nav>
+                <!-- Language Toggles -->
+                <div class="lang-switcher">
+                    <button class="lang-btn active" onclick="switchLanguage('en')">EN</button>
+                    <button class="lang-btn" onclick="switchLanguage('lt')">LT</button>
+                </div>
+            </div>
         </div>
     </header>
 
     <!-- Hero Section -->
     <section class="hero">
         <div class="container">
-            <h1>Invisible Protection for Every Breath</h1>
-            <p>A smart wearable sensor and intelligent mapping application designed to keep young adults safe from hidden environmental allergens.</p>
-            <a href="#solution" class="btn">Discover AllergAir</a>
+            <h1 id="hero-title">Invisible Protection for Every Breath</h1>
+            <p id="hero-desc">A smart wearable sensor and intelligent mapping application designed to keep young adults safe from hidden environmental allergens.</p>
+            <a href="#solution" class="btn" id="hero-btn">Discover AllergAir</a>
         </div>
     </section>
 
     <!-- Problem Section -->
     <section id="problem">
         <div class="container">
-            <h2 class="section-title">The Current Challenge</h2>
+            <h2 class="section-title" id="title-challenge">The Current Challenge</h2>
             <div class="problem-grid">
                 <div class="card">
-                    <h3>The Reality for Young Adults</h3>
-                    <p>Many young adults have to navigate environments while constantly vulnerable to critical health threats. Too often, they do not notice an allergen's presence until it enters their system, causing immediate, avoidable damage to their health.</p>
+                    <h3 id="prob-card1-title">The Reality for Young Adults</h3>
+                    <p id="prob-card1-desc">Many young adults have to navigate environments while constantly vulnerable to critical health threats. Too often, they do not notice an allergen's presence until it enters their system, causing immediate, avoidable damage to their health.</p>
                 </div>
                 <div class="card">
-                    <h3>How it's Managed Now</h3>
-                    <p>Currently, mitigation is entirely reactive. Individuals try their best to avoid known danger zones. When a slip-up happens and severe reactions manifest, they are forced to rely on painful, stressful emergency medical interventions like an "EpiPen".</p>
+                    <h3 id="prob-card2-title">How it's Managed Now</h3>
+                    <p id="prob-card2-desc">Currently, mitigation is entirely reactive. Individuals try their best to avoid known danger zones. When a slip-up happens and severe reactions manifest, they are forced to rely on painful, stressful emergency medical interventions like an "EpiPen".</p>
                 </div>
             </div>
         </div>
@@ -294,22 +335,22 @@
     <!-- Solution / Idea Section -->
     <section id="solution" class="solution-bg">
         <div class="container">
-            <h2 class="section-title">The AllergAir System</h2>
+            <h2 class="section-title" id="title-solution">The AllergAir System</h2>
             <div class="solution-features">
                 <div class="feature">
                     <div class="feature-icon">1</div>
-                    <h4>The Wearable Sensor</h4>
-                    <p>An aesthetic, compact device that easily clips to your jeans or handbag. It stays with you effortlessly, ensuring you never leave it behind.</p>
+                    <h4 id="feat1-title">The Wearable Sensor</h4>
+                    <p id="feat1-desc">An aesthetic, compact device that easily clips to your jeans or handbag. It stays with you effortlessly, ensuring you never leave it behind by accident.</p>
                 </div>
                 <div class="feature">
                     <div class="feature-icon">2</div>
-                    <h4>Instant Alerts</h4>
-                    <p>The core chemical sensor recognizes micro-elements of your specific allergens. Upon detection, both the device and your phone vibrate in sync to warn you instantly.</p>
+                    <h4 id="feat2-title">Instant Alerts</h4>
+                    <p id="feat2-desc">The core chemical sensor recognizes elements of your specific allergens. Upon detection, both the device and your phone vibrate in sync to warn you instantly.</p>
                 </div>
                 <div class="feature">
                     <div class="feature-icon">3</div>
-                    <h4>Intelligent App</h4>
-                    <p>Log in, input your profile, and let the app track environmental fluctuations. View a personalized heat map showing exactly where and when your allergen levels peaked.</p>
+                    <h4 id="feat3-title">Intelligent App</h4>
+                    <p id="feat3-desc">Log in, select your unique profile, and let the app track environmental elements. View a personalized map showing exactly where your allergen exposures occurred.</p>
                 </div>
             </div>
         </div>
@@ -319,9 +360,9 @@
     <section id="why-it-works">
         <div class="container">
             <div class="why-it-works">
-                <h2 class="section-title">Proactive, Not Reactive</h2>
-                <p>AllergAir works because it transforms how you interface with your environment. By acting as an early warning system, it intercepts danger before it reaches you. This means living life confidently, minimizing health risks, and drastically reducing your reliance on heavy allergy medications.</p>
-                <a href="#" class="btn">Join the Waitlist</a>
+                <h2 class="section-title" id="title-why">Proactive, Not Reactive</h2>
+                <p id="why-desc">AllergAir works because it transforms how you interface with your environment. By acting as an early warning system, it intercepts danger before it reaches you. This means living life confidently, minimizing health risks, and drastically reducing your reliance on heavy allergy medications.</p>
+                <a href="#" class="btn" id="why-btn">Join the Waitlist</a>
             </div>
         </div>
     </section>
@@ -329,9 +370,100 @@
     <!-- Footer -->
     <footer>
         <div class="container">
-            <p>&copy; 2026 AllergAir Technologies. All rights reserved. Designed for clean medical innovation.</p>
+            <p id="footer-text">&copy; 2026 AllergAir Technologies. All rights reserved. Designed for clean medical innovation.</p>
         </div>
     </footer>
 
+    <!-- Translation Engine Script -->
+    <script>
+        const translations = {
+            en: {
+                navChallenge: "The Challenge",
+                navSolution: "Our Solution",
+                navWhy: "Why It Works",
+                heroTitle: "Invisible Protection for Every Breath",
+                heroDesc: "A smart wearable sensor and intelligent mapping application designed to keep young adults safe from hidden environmental allergens.",
+                heroBtn: "Discover AllergAir",
+                titleChallenge: "The Current Challenge",
+                probCard1Title: "The Reality for Young Adults",
+                probCard1Desc: "Many young adults have to navigate environments while constantly vulnerable to critical health threats. Too often, they do not notice an allergen's presence until it enters their system, causing immediate, avoidable damage to their health.",
+                probCard2Title: "How it's Managed Now",
+                probCard2Desc: "Currently, mitigation is entirely reactive. Individuals try their best to avoid known danger zones. When a slip-up happens and severe reactions manifest, they are forced to rely on painful, stressful emergency medical interventions like an \"EpiPen\".",
+                titleSolution: "The AllergAir System",
+                feat1Title: "The Wearable Sensor",
+                feat1Desc: "An aesthetic, compact device that easily clips to your jeans or handbag. It stays with you effortlessly, ensuring you never leave it behind by accident.",
+                feat2Title: "Instant Alerts",
+                feat2Desc: "The core chemical sensor recognizes elements of your specific allergens. Upon detection, both the device and your phone vibrate in sync to warn you instantly.",
+                feat3Title: "Intelligent App",
+                feat3Desc: "Log in, select your unique profile, and let the app track environmental elements. View a personalized map showing exactly where your allergen exposures occurred.",
+                titleWhy: "Proactive, Not Reactive",
+                whyDesc: "AllergAir works because it transforms how you interface with your environment. By acting as an early warning system, it intercepts danger before it reaches you. This means living life confidently, minimizing health risks, and drastically reducing your reliance on heavy allergy medications.",
+                whyBtn: "Join the Waitlist",
+                footerText: "© 2026 AllergAir Technologies. All rights reserved. Designed for clean medical innovation."
+            },
+            lt: {
+                navChallenge: "Iššūkis",
+                navSolution: "Mūsų Idėja",
+                navWhy: "Kodėl tai veikia",
+                heroTitle: "Nemoma apsauga kiekvienam įkvėpimui",
+                heroDesc: "Išmanus nešiojamas jutiklis ir intelektuali žemėlapio programėlė, sukurta apsaugoti jaunus suaugusiuosius nuo paslėptų aplinkos alergenų.",
+                heroBtn: "Atraskite AllergAir",
+                titleChallenge: "Dabartinis Iššūkis",
+                probCard1Title: "Jaunų suaugusiųjų realybė",
+                probCard1Desc: "Daugelis jaunų žmonių turi būti itin atsargūs dėl alergenų, nes dažnai pasitaiko situacijų, kai jie nepastebi alergeno, o tai sukelia staigų ir stiprų šalutinį poveikį jų sveikatai.",
+                probCard2Title: "Kaip tai sprendžiama dabar",
+                probCard2Desc: "Šiuo metu vartotojai tiesiog stengiasi vengti vietų, kur, jų žiniomis, gali būti alergenų. Jei alergenai sukelia didelę žalą sveikatai, jie yra priversti patys sau susišvirkšti skubios pagalbos vaistus su „EpiPen“.",
+                titleSolution: "AllergAir Sistema",
+                feat1Title: "Nešiojamas įrenginys",
+                feat1Desc: "Estetiškas, kompaktiškas prietaisas, kurį galima lengvai prisegti prie džinsų ar rankinės – prie daiktų, kuriuos visada turite su savimi ir nepaliksite per klaidą.",
+                feat2Title: "Momentiniai įspėjimai",
+                feat2Desc: "Pagrindinis prietaiso komponentas yra cheminis jutiklis, kuris pagal cheminius elementus ir junginius atpažįsta alergeną. Tam, kad jus įspėtų, įrenginys ir telefonas pradeda vibruoti vienu metu.",
+                feat3Title: "Išmanioji programėlė",
+                feat3Desc: "Atsisiuntus programėlę, prisijungiate prie paskyros ir pasirenkate savo alergiją. Programa analizuoja kur ir kada padidėjo alergenų lygis, bei pažymi šias vietas žemėlapyje.",
+                titleWhy: "Proaktyvu, o ne reaktyvu",
+                whyDesc: "Mūsų produktas veikia, nes jis iš anksto įspėja vartotoją apie artėjantį pavojų sveikatai. Tai reiškia, kad vartotojui nebekyla rizika sveikatai ir jam nebereikia taip dažnai vartoti stiprių alergijos vaistų.",
+                whyBtn: "Prisijungti prie laukiančiųjų sąrašo",
+                footerText: "© 2026 AllergAir Technologies. Visos teisės saugomos. Sukurta švarioms medicinos inovacijoms."
+            }
+        };
+
+        function switchLanguage(lang) {
+            // Update Text Contents
+            document.getElementById('nav-challenge').textContent = translations[lang].navChallenge;
+            document.getElementById('nav-solution').textContent = translations[lang].navSolution;
+            document.getElementById('nav-why').textContent = translations[lang].navWhy;
+            
+            document.getElementById('hero-title').textContent = translations[lang].heroTitle;
+            document.getElementById('hero-desc').textContent = translations[lang].heroDesc;
+            document.getElementById('hero-btn').textContent = translations[lang].heroBtn;
+            
+            document.getElementById('title-challenge').textContent = translations[lang].titleChallenge;
+            document.getElementById('prob-card1-title').textContent = translations[lang].probCard1Title;
+            document.getElementById('prob-card1-desc').textContent = translations[lang].probCard1Desc;
+            document.getElementById('prob-card2-title').textContent = translations[lang].probCard2Title;
+            document.getElementById('prob-card2-desc').textContent = translations[lang].probCard2Desc;
+            
+            document.getElementById('title-solution').textContent = translations[lang].titleSolution;
+            document.getElementById('feat1-title').textContent = translations[lang].feat1Title;
+            document.getElementById('feat1-desc').textContent = translations[lang].feat1Desc;
+            document.getElementById('feat2-title').textContent = translations[lang].feat2Title;
+            document.getElementById('feat2-desc').textContent = translations[lang].feat2Desc;
+            document.getElementById('feat3-title').textContent = translations[lang].feat3Title;
+            document.getElementById('feat3-desc').textContent = translations[lang].feat3Desc;
+            
+            document.getElementById('title-why').textContent = translations[lang].titleWhy;
+            document.getElementById('why-desc').textContent = translations[lang].whyDesc;
+            document.getElementById('why-btn').textContent = translations[lang].whyBtn;
+            
+            document.getElementById('footer-text').textContent = translations[lang].footerText;
+
+            // Handle UI Active Button States
+            const buttons = document.querySelectorAll('.lang-btn');
+            buttons.forEach(btn => btn.classList.remove('active'));
+            
+            // Highlight the clicked language choice
+            event.target.classList.add('active');
+        }
+    </script>
 </body>
 </html>
